@@ -4,7 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://Sangeeth722.github.io/fitCheckBmi/style.css">
+    <style>
+        /* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #f7f7f7, #e3e3e3);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container for BMI Calculator */
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 26px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+/* Input Fields */
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Focus Effect on Input */
+input[type="number"]:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Submit Button */
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+/* Hover Effect on Submit Button */
+input[type="submit"]:hover {
+    background: #0056b3;
+}
+
+/* Result Display */
+#result {
+    font-size: 18px;
+    font-weight: 600;
+    color: #444;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 100%;
+    max-width: 300px;
+    margin: 15px auto;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Change background when result updates */
+#result.updated {
+    background: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+#bmi-info {
+    font-size: 16px;
+    font-weight: 500;
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 15px;
+    display: inline-block;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+#bmi-info:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+/* Click Effect */
+#bmi-info:active {
+    color:black;
+}
+        
+    </style>
 </head>
 <body>
     <div>
@@ -24,6 +150,52 @@
     </div>
 </div>
     
-<script src="https://Sangeeth722.github.io/fitCheckBmi/work.js"></script>
+<script >
+    function calculateBmi(){
+    let height = document.getElementById("first").value;
+
+    let weight = document.getElementById("second").value;
+    
+    var heightInM = height /100;
+
+    var bmi = weight/(heightInM*heightInM)
+
+    if (height==="" || weight ===""){
+        
+        
+        alert("Enter Valid Height And Weight")
+
+    }
+
+    else if (bmi <= 18.5){
+        document.getElementById("result").innerHTML = "Underweight".toUpperCase();
+
+    }else if(bmi >  18.5 && bmi <= 24.9 ){
+        document.getElementById("result").innerHTML = "Normal weight".toUpperCase();
+    }else if(bmi >=  25 && bmi <= 29.9 ){
+        document.getElementById("result").innerHTML = "Over weight ".toUpperCase();
+    }else if(bmi >=30 ){
+        document.getElementById("result").innerHTML = "Obese ".toUpperCase();
+    }
+
+
+    
+}
+function whatIsBMI(){
+
+    document.getElementById("bmi-info").innerHTML = `
+    <strong>What is BMI?</strong><br><br>
+    Body Mass Index (BMI) is a measurement that helps determine if a person has a healthy weight for their height.  
+    It is calculated using the formula:  
+    <br><br>
+    <strong>BMI = Weight (kg) ÷ (Height (m) × Height (m))</strong>  
+    <br><br>
+    A higher BMI may indicate higher body fat, while a lower BMI may suggest being underweight.  
+    However, BMI does not measure body fat directly and should be considered along with other health factors.  
+`;
+
+
+}
+</script>
 </body>
 </html>

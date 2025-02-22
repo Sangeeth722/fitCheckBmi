@@ -22,4 +22,4 @@ It allows users to enter their **height (cm)** and **weight (kg)** to calculate 
 ## 📥 Installation & Usage
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/repository-name.git
+   
